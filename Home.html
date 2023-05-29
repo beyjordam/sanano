@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Mimiyong Shop - Home</title>
+  <link rel="stylesheet" type="text/css" href="style.css">
+  <style>
+    /* Add custom styles here or link an external CSS file */
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-image: url("https://t4.ftcdn.net/jpg/04/17/14/21/360_F_417142174_fdoyq2dxgsDXQCJSegW9Rf9fDvmqOMEt.jpg");
+      background-size: cover;
+      background-repeat: no-repeat;
+    }
+
+    header {
+      background-color: #333;
+      padding: 10px;
+      color: #fff;
+      text-align: center;
+    }
+
+    .banner {
+      margin-bottom: 10px;
+    }
+
+    .banner h1 {
+      font-size: 32px;
+      margin: 0;
+      text-shadow: 2px 2px #555;
+    }
+
+    .logo {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-bottom: 20px;
+    }
+
+    .logo img {
+      max-width: 150px;
+      height: auto;
+      border-radius: 50%;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    }
+
+    nav {
+      background-color: rgba(0, 0, 0, 0.5);
+      padding: 10px;
+      border-radius: 5px;
+      margin-bottom: 20px;
+    }
+
+    nav ul {
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+      text-align: center;
+    }
+
+    nav ul li {
+      display: inline-block;
+      margin-right: 10px;
+    }
+
+    nav ul li a {
+      text-decoration: none;
+      color: #fff;
+      padding: 5px;
+      transition: color 0.3s;
+    }
+
+    nav ul li a:hover {
+      color: #f9c54e;
+    }
+
+    .body {
+      padding: 20px;
+      text-align: center;
+    }
+    
+    .product-images {
+      width: 300px;
+      height: 300px;
+      margin: 0 auto 20px;
+      overflow: hidden;
+      border-radius: 50%;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    }
+
+    .product-images img {
+      max-width: 100%;
+      height: 100%;
+      object-fit: cover;
+      background-color: transparent; /* Set the background color of the image to transparent */
+    }
+    
+    .navigation-buttons {
+      margin-top: 10px;
+    }
+
+   footer {
+    background-color: transparent; /* Set the background color of the footer to transparent */
+    padding: 10px;
+    text-align: center;
+    color: #777;
+    font-size: 12px;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+  }
+
+  /* ...existing styles... */
+    
+    /* Additional custom styles */
+    .button {
+      display: inline-block;
+      padding: 10px 20px;
+      background-color: #f9c54e;
+      color: #fff;
+      text-decoration: none;
+      border-radius: 5px;
+      transition: background-color 0.3s;
+    }
+    
+    .button:hover {
+      background-color: #e6b541;
+    }
+    
+    h2 {
+      font-size: 28px;
+      margin-bottom: 10px;
+    }
+    
+    p {
+      font-size: 18px;
+      margin-bottom: 20px;
+    }
+  </style>
+  <script>
+    // JavaScript function to rotate through the images
+    var images = [
+      "https://hips.hearstapps.com/hmg-prod/images/cute-cat-photos-1593441022.jpg?crop=1.00xw:0.753xh;0,0.153xh&resize=1200:*",
+      "https://t3.ftcdn.net/jpg/05/52/23/28/360_F_552232811_fDuQfMMBufH9ApEDyebwo3uPthK1WepL.jpg",
+      "https://images.unsplash.com/photo-1529778873920-4da4926a72c2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8Y3V0ZSUyMGNhdHxlbnwwfHwwfHx8MA%3D%3D&w=1000&q=80",
+      "https://images.ctfassets.net/ub3bwfd53mwy/5zi8myLobtihb1cWl3tj8L/45a40e66765f26beddf7eeee29f74723/6_Image.jpg?w=750",
+	  "https://images.unsplash.com/photo-1533738363-b7f9aef128ce?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8Y3V0ZSUyMGNhdHN8ZW58MHx8MHx8fDA%3D&w=1000&q=80",
+    ];
+    var currentImageIndex = 0;
+    var imageElement;
+
+    function rotateImages() {
+      imageElement.src = images[currentImageIndex];
+    }
+
+    function showNextImage() {
+      currentImageIndex = (currentImageIndex + 1) % images.length;
+      rotateImages();
+    }
+
+    function showPreviousImage() {
+      currentImageIndex = (currentImageIndex - 1 + images.length) % images.length;
+      rotateImages();
+    }
+
+    function init() {
+      imageElement = document.querySelector(".product-images img");
+      rotateImages();
+      setInterval(showNextImage, 3000); // Change image every 3 seconds (3000 milliseconds)
+    }
+    
+    window.addEventListener("load", init); // Call init function when the window has loaded
+  </script>
+</head>
+<body>
+  <header>
+    <div class="logo">
+      <img src="https://img.freepik.com/premium-vector/cute-cat-sleeping-brick-wall-funny-cartoon-character-happy-kitty-white-background-illustration-can-be-used-holiday-card-children-s-clothing-things-design-banners-animal-shop_567746-174.jpg" alt="Company Logo">
+    </div>
+    <div class="banner">
+      <h1>Mimiyong Shop</h1>
+    </div>
+    <nav>
+      <ul>
+        <li><a href="#">Home</a></li>
+        <li><a href="file:///C:/Users/ADMIN/Documents/Product.html">Product Gallery</a></li>
+        <li><a href="file:///C:/Users/ADMIN/Documents/order.html">Order</a></li>
+      </ul>
+    </nav>
+  </header>
+  
+  <section class="body">
+    <h2>Welcome to Mimiyong shop</h2>
+    <p>you are all welcome to our online shopping and you can buy from us and you can see our</p>
+	<p>products just click on the prodcut gallery and you can see our products and you can add to cart there too</p>
+    <div class="product-images">
+      <img src="" alt="Product 1">
+    </div>
+    <div class="navigation-buttons">
+      <a href="#" class="button" style="background-color: black;" onclick="showPreviousImage()">Back</a>
+      <a href="#" class="button"style="background-color: black;"onclick="showNextImage()">Next</a>
+    </div>
+    <!-- Additional content about your company and products -->
+  </section>
+  
+  <footer>
+    <p> 2023 Mimiyong Shop. All rights reserved.</p>
+  </footer>
+</body>
+</html>

@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Mimiyong Shop - Order</title>
+  <style>
+    /* Add custom styles here or link an external CSS file */
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-image: url("https://t4.ftcdn.net/jpg/04/17/14/21/360_F_417142174_fdoyq2dxgsDXQCJSegW9Rf9fDvmqOMEt.jpg");
+      background-size: cover;
+      background-repeat: no-repeat;
+      color: brown;
+    }
+
+    header {
+      background-color: #333;
+      padding: 10px;
+      color: #fff;
+      text-align: center;
+    }
+
+    .banner {
+      margin-bottom: 5px;
+    }
+
+    .banner h1 {
+      font-size: 24px;
+      margin: 0;
+    }
+
+    .logo {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .logo img {
+      max-width: 100px;
+      height: auto;
+    }
+
+    nav {
+      background-color: transparent;
+      padding: 10px;
+    }
+
+    nav ul {
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+      text-align: center;
+    }
+
+    nav ul li {
+      display: inline-block;
+      margin-right: 10px;
+    }
+
+    nav ul li a {
+      text-decoration: none;
+      color: #fff;
+      padding: 5px;
+    }
+
+    .container {
+      max-width: 500px;
+      margin: 0 auto;
+      padding: 20px;
+      background-color: #fff;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .container button {
+      width: 100%;
+      padding: 10px;
+      margin-top: 10px;
+      background-color: brown;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+
+    .container button:hover {
+      background-color: #7b532e;
+    }
+
+    .empty-cart {
+      color: black;
+    }
+
+    .buttons-container {
+      display: flex;
+      gap: 10px;
+      margin-bottom: 20px;
+    }
+
+    .product-info {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 10px;
+      border-bottom: 1px solid #ddd;
+      padding-bottom: 10px;
+    }
+
+    .product-image {
+      max-width: 100px;
+      max-height: 100px;
+      object-fit: cover;
+      border-radius: 5px;
+    }
+
+    .total-price {
+      font-size: 18px;
+      margin-top: 10px;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo">
+      <img src="https://img.freepik.com/premium-vector/cute-cat-sleeping-brick-wall-funny-cartoon-character-happy-kitty-white-background-illustration-can-be-used-holiday-card-children-s-clothing-things-design-banners-animal-shop_567746-174.jpg" alt="Company Logo">
+    </div>
+    <h1>Order</h1>
+    <nav>
+      <ul>
+        <li><a href="#">Order</a></li>
+        <li><a href="file:///C:/Users/ADMIN/Documents/Home.html">Home</a></li>
+        <li><a href="file:///C:/Users/ADMIN/Documents/Product.html">Product Gallery</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <div class="container">
+    <div class="buttons-container">
+      <button id="clearCartBtn" style="background-color: black;" >Clear Order</button>
+      <button onclick="goBack()" style="background-color: black;">Return to product gallery</button>
+      <button onclick="checkout()" style="background-color: black;" >Checkout</button>
+    </div>
+
+    <div id="cartItems">
+      <!-- Cart items will be dynamically added here -->
+    </div>
+  </div>
+
+  <script>
+    // Retrieve cart items from local storage
+    const cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
+    const cartItemsContainer = document.getElementById('cartItems');
+
+    if (cartItems.length === 0) {
+      cartItemsContainer.innerHTML = '<p class="empty-cart">Your cart is currently empty.</p>';
+    } else {
+      let totalPrice = 0;
+
+      cartItems.forEach(item => {
+        const cartItem = document.createElement('div');
+        cartItem.classList.add('product-info');
+        cartItem.innerHTML = `
+          <h3>${item.productName}</h3>
+          <img src="${item.image}" alt="Product Image" class="product-image">
+          <p>Price: ₱${convertToPesoBill(item.price)}</p>
+        `;
+        cartItemsContainer.appendChild(cartItem);
+
+        // Calculate the total price
+        totalPrice += item.price;
+      });
+
+      // Display the total price
+      const totalElement = document.createElement('p');
+      totalElement.classList.add('total-price');
+      totalElement.innerHTML = `Total: ₱${convertToPesoBill(totalPrice)}`;
+      cartItemsContainer.appendChild(totalElement);
+    }
+
+    // Convert price to peso bill format
+    function convertToPesoBill(price) {
+      const formatter = new Intl.NumberFormat('en-PH', {
+        style: 'currency',
+        currency: 'PHP',
+      });
+
+      return formatter.format(price);
+    }
+
+    // Clear cart button functionality
+    const clearCartBtn = document.getElementById('clearCartBtn');
+    clearCartBtn.addEventListener('click', function() {
+      // Clear cart items in localStorage
+      localStorage.removeItem('cartItems');
+
+      // Clear cart items on the page
+      cartItemsContainer.innerHTML = '<p class="empty-cart">Your cart is currently empty.</p>';
+    });
+
+    // Go back to the product page
+    function goBack() {
+      window.history.back();
+    }
+
+    // Checkout process
+    function checkout() {
+      const totalPrice = getTotalPrice();
+
+      if (totalPrice === 0) {
+        alert('Your cart is empty. Please add items to the cart before checking out.');
+      } else {
+        const confirmationMessage = `Total amount: ₱${convertToPesoBill(totalPrice)}\n\nProceed with the checkout?`;
+
+        if (confirm(confirmationMessage)) {
+          // Perform the checkout process here
+          alert('Checkout completed successfully!');
+          clearCart();
+        }
+      }
+    }
+
+    // Calculate the total price
+    function getTotalPrice() {
+      let totalPrice = 0;
+
+      cartItems.forEach(item => {
+        totalPrice += item.price;
+      });
+
+      return totalPrice;
+    }
+
+    // Clear cart
+    function clearCart() {
+      // Clear cart items in localStorage
+      localStorage.removeItem('cartItems');
+
+      // Clear cart items on the page
+      cartItemsContainer.innerHTML = '<p class="empty-cart">Your cart is currently empty.</p>';
+    }
+  </script>
+</body>
+</html>

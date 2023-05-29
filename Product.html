@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>mimiyong shop- Product</title>
+  <link rel="stylesheet" type="text/css" href="style.css">
+  <style>
+    /* Add custom styles here or link an external CSS file */
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-image: url("https://t4.ftcdn.net/jpg/04/17/14/21/360_F_417142174_fdoyq2dxgsDXQCJSegW9Rf9fDvmqOMEt.jpg");
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center;
+    }
+    header {
+      background-color: #333;
+      padding: 10px;
+      color: #fff;
+      text-align: center;
+    }
+
+    .banner {
+      margin-bottom: 5px;
+    }
+
+    .banner h1 {
+      font-size: 24px;
+      margin: 0;
+    }
+
+    .logo {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .logo img {
+      max-width: 100px;
+      height: auto;
+    }
+
+    nav {
+      background-color: ;
+      padding: 10px;
+    }
+
+    nav ul {
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+      text-align: center;
+    }
+
+    nav ul li {
+      display: inline-block;
+      margin-right: 10px;
+    }
+
+    nav ul li a {
+      text-decoration: none;
+      color: #0d1117;
+      padding: 5px;
+    }
+
+    .container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center; /* Center align items vertically */
+      padding: 20px;
+      text-align: center;
+      min-height: 100vh; /* Set a minimum height to the container */
+    }
+
+    .product {
+      width: 400px;
+      margin: 0 10px 20px;
+      background-color: #fff;
+      padding: 10px;
+      border-radius: 5px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    .product img {
+      width: 100%;
+      height: 200px;
+      object-fit: auto;
+      border-radius: 5px;
+      margin-bottom: 10px;
+    }
+
+    .product h3 {
+      font-size: 18px;
+      margin: 0;
+    }
+
+    .product p {
+      margin: 5px 0;
+    }
+
+    .product button {
+      display: inline-block;
+      padding: 10px 20px;
+      background-color: #333;
+      color: #fff;
+      text-decoration: none;
+      border-radius: 5px;
+      transition: background-color 0.3s;
+    }
+
+    .product button:hover {
+      background-color: #555;
+    }
+
+   footer {
+      background-color: transparent;
+      padding: 10px;
+      text-align: center;
+      color: #777;
+      font-size: 12px;
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+    }
+	  /* Additional custom styles */
+    .button {
+      display: inline-block;
+      padding: 10px 20px;
+      background-color: #333;
+      color: #fff;
+      text-decoration: none;
+      border-radius: 5px;
+      transition: background-color 0.3s;
+    }
+	 .button:hover {
+      background-color: #555;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo">
+      <img src="https://img.freepik.com/premium-vector/cute-cat-sleeping-brick-wall-funny-cartoon-character-happy-kitty-white-background-illustration-can-be-used-holiday-card-children-s-clothing-things-design-banners-animal-shop_567746-174.jpg" alt="Company Logo">
+    </div>
+    <div class="banner">
+      <h1>Mimiyong shop</h1>
+    <nav>
+      <ul>
+          <li><a href="file:///C:/Users/ADMIN/Documents/Product.html" class="nav-button" style="background-color: transparent; color: white;">Product gallery</a></li>
+		 <li><a href="file:///C:/Users/ADMIN/Documents/Home.html" class="nav-button" style="background-color: transparent; color: white;">Home</a></li>
+	   <li><a href="file:///C:/Users/ADMIN/Documents/order.html" class="nav-button" style="background-color: transparent; color: white;">Order </a></li>
+      </ul>
+    </nav>
+  </header>
+  <div class="container">
+    <div class="product">
+      <img src="https://www.whiskas.in/cdn-cgi/image/format=auto,q=90/sites/g/files/fnmzdf2051/files/2022-09/18853301400104-product-image-1.png" alt="Product 1">
+      <h3>Whiskas</h3>
+      <p>It is available either as small meaty pieces in sauce, gravy or jelly packaged in tins, foil trays or pouches, 
+        as well as in the form of small biscuits sold in cartons or pouches and milk sold in small bottles.
+        Its packaging has a recognisable purple color and a stylized silhouette of a cat's head.</p>
+      <p>P 70.00</p>
+      <button onclick="addToCart('Whiskas', 70.00, 'https://www.whiskas.in/cdn-cgi/image/format=auto,q=90/sites/g/files/fnmzdf2051/files/2022-09/18853301400104-product-image-1.png')">Add to Cart</button>
+    </div>
+    <div class="product">
+      <img src="https://www.petwarehouse.ph/6550/pet-plus-feline-gourmet-tuna-sardines-shrimp-in-salmon-jelly-400g-cat-wet-food.jpg" alt="Product 2">
+      <h3>Tuna Sardines</h3>
+      <p>Cats enjoy a nutritionally rich and very tasty diet. The tuna with sardine recipe contains tuna loin,
+        a high-quality and highly digestible protein with a high nutritional value. The sardine is not crushed,
+        but your furry ones will find it chopped inside each can.</p>
+      <p>P 50.00</p>
+      <button onclick="addToCart('Tuna Sardines', 50.00, 'https://www.petwarehouse.ph/6550/pet-plus-feline-gourmet-tuna-sardines-shrimp-in-salmon-jelly-400g-cat-wet-food.jpg')">Add to Cart</button>
+    </div>
+
+    <div class="product">
+      <img src="https://fruitablespet.com/sites/default/files/2020-06/Fruitables_Superfoods_Cat_%28NEW%21%29_0.png" alt="Product 3">
+      <h3>Treats</h3>
+      <p>Small pieces of cooked chicken, turkey, beef, venison, or fish make excellent cat treats. 
+        Be sure to trim the fat from meat or poultry, and make absolutely sure it's free of cooked bones—they're sharp and splinter easily.</p>
+      <p>P 90.00</p>
+      <button onclick="addToCart('Treats', 90.00, 'https://fruitablespet.com/sites/default/files/2020-06/Fruitables_Superfoods_Cat_%28NEW%21%29_0.png')">Add to Cart</button>
+    </div>
+
+    <div class="product">
+      <img src="C:\Users\ADMIN\Desktop\Website picture\maximecat.jpg" alt="Product 4">
+      <h3>Maxime Cat</h3>
+      <p>Maxime Cat Elite is enriched with essential nutrients and minerals to provide your kittens and mother cats with healthy digestion,
+        strong bones, teeth, and muscles, urinary care, and immunity support for more bonding moments with your cats.</p>
+      <p>P 100.00</p>
+      <button onclick="addToCart('Maxime Cat', 100.00, 'https://www.petfoodprocessing.net/ext/resources/Articles/2022/04/041422_Pilmico-new-cat-foods_Lead.jpg?height=418&t=1649939116&width=800')">Add to Cart</button>
+    </div>
+
+    <div class="product">
+      <img src="https://m.media-amazon.com/images/I/71Xo4gbxqkL.jpg" alt="Product 5">
+      <h3>Cat collar</h3>
+      <p>A cat collar is a piece of material put around the neck of a cat. Cat collars are used for identification, fashion, protection (as from fleas), restraint, or 
+	   to warn off prey, and may be worn by cats that are indoor-only as well as cats with outdoor access.</p>
+      <p>P 20.00</p>
+      <button onclick="addToCart('Cat Collar', 20.00, 'https://m.media-amazon.com/images/I/71Xo4gbxqkL.jpg')">Add to Cart</button>
+    </div>
+
+    <div class="product">
+      <img src="https://static-01.daraz.pk/p/3c139a00952d192e845f4060f4cf5554.jpg" alt="Product 6">
+      <h3>cat food bowl</h3>
+      <p> they help to reduce the chance of indigestion, vomiting, and choking, as well
+  	  as improve your cat's way of standing at the time of eating food. An elevated cat bowl 
+	  should never be used as a treatment for gastrointestinal issues in cats.</p>
+      <p>P 150.00</p>
+      <button onclick="addToCart('cat, food, bowl', 150.00, 'https://static-01.daraz.pk/p/3c139a00952d192e845f4060f4cf5554.jpg')">Add to Cart</button>
+    </div>
+
+    <div class="product">
+      <img src="https://imagesvc.meredithcorp.io/v3/mm/image?url=https%3A%2F%2Fstatic.onecms.io%2Fwp-content%2Fuploads%2Fsites%2F47%2F2022%2F02%2F17%2Fpet-o-cera-cat-shampoo.png" alt="Product 7">
+      <h3>Peto cera cat shampoo</h3>
+      <p> PetO'Cera cat shampoo is formulated exclusively for cats to deliver advanced moisture 
+	    protection by soothing and moisturizing dry feline skin. Made with safe ingredients, 
+		our cat shampoo effectively works to tackle odors and maintain your pet's coat clean and fluffy.</p>
+      <p>P 250.00</p>
+      <button onclick="addToCart('Peto cera cat', 250.00, 'https://imagesvc.meredithcorp.io/v3/mm/image?url=https%3A%2F%2Fstatic.onecms.io%2Fwp-content%2Fuploads%2Fsites%2F47%2F2022%2F02%2F17%2Fpet-o-cera-cat-shampoo.png')">Add to Cart</button>
+    </div>
+  </div>
+    <div class="product">
+      <img src="https://my-live-01.slatic.net/p/2823e98e548473e3ba39513c3c962169.jpg" alt="Product 8">
+      <h3>cat toy</h3>
+      <p>Funny Pet Cat Toys Portable Cat Tent Toys Mobile Activity Pets Play Bed Toy Cat Play Blanket House Foldable </p>
+      <p>P 500.00</p>
+      <button onclick="addToCart('cat toy', 500.00, 'https://my-live-01.slatic.net/p/2823e98e548473e3ba39513c3c962169.jpg')">Add to Cart</button>
+    </div>
+	 <div class="product">
+      <img src="https://cf.shopee.ph/file/0338e0554736b7ba5fa8817c86965514" alt="Product 9">
+      <h3>Premium cat bentonite litter</h3>
+      <p> Cat litter products have only been on the market for about 63 years and have been around for pet cat owners. 
+	   Traditionally, people used whatever material was readily available to them, including sand, garden soil, ashes,
+	   and shredded newspaper as litter for their cats.</p>
+      <p>P 350.00</p>
+      <button onclick="addToCart('Premium cat bentonite', 350.00, 'https://cf.shopee.ph/file/0338e0554736b7ba5fa8817c86965514')">Add to Cart</button>
+    </div>
+	 <div class="product">
+      <img src="https://m.media-amazon.com/images/I/71QMC1DnnvL._AC_SL1500_.jpg" alt="Product 10">
+      <h3>Vetri science multivitamins</h3>
+      <p>Formulated with a balance of amino acids, fish oil omegas and Selenium for 
+	  added immune system support to help maintain the overall physical well-being
+ 	  of cats, no matter size, age or breed!</p>
+      <p>P 150.00</p>
+      <button onclick="addToCart('Vetri science multivitamins', 150.00, 'https://m.media-amazon.com/images/I/71QMC1DnnvL._AC_SL1500_.jpg')">Add to Cart</button>
+    </div>
+  <script>
+    function addToCart(productName, price, image) {
+      // Retrieve cart items from localStorage or initialize an empty array
+      let cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
+
+      // Create a new cart item object
+      const newItem = {
+        productName: productName,
+        price: price,
+        image: image
+      };
+
+      // Add the new item to the cart array
+      cartItems.push(newItem);
+
+      // Update the cart items in localStorage
+      localStorage.setItem('cartItems', JSON.stringify(cartItems));
+
+      // Provide user feedback (notification message)
+      alert('Product added to cart!');
+
+      // You can further enhance this function to update the cart icon or display the cart total
+    }
+  </script>
+</body>
+</html>
